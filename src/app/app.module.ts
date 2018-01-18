@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { GraphrComponent } from './graphr/graphr.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    GraphrComponent
   ],
   imports: [
     BrowserModule
