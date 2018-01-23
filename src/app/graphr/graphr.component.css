@@ -1,8 +1,11 @@
-
-
 .bar {
   width: 0;
   transition: width 1s ease-out;
   -moz-transition: width 1s ease-out;
   -webkit-transition: width 1s ease-out;
+}
+
+.grid line {
+  stroke: lightgrey;
+  stroke-opacity: 0.5;
 }
