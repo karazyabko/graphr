@@ -18,6 +18,7 @@ For the moment component supports 5 types of charts, such as:
 - Histogram
 - World Heatmap
 - Detailed Stacked Bar
+- Line Chart
 
 There is a default config for all charts, but you can easily overwrite it with new values.
 
@@ -213,8 +214,8 @@ Default config:
 
 ```angular2html
 worldHeatDefaultOptions = {
-  'valueField': '',
-  'nameField': '',
+  'valueField': '',   //required
+  'nameField': '',    //required
   'chart': {
     'width': 800,
     'height': 600,
@@ -274,8 +275,8 @@ Default config:
 
 ```angular2html
 detailedStackBarDefaultOptions = {
-  'valueField': '',
-  'nameField': '',
+  'valueField': '',     //required, value field
+  'nameField': '',      //required
   'chart': {
     'width': 400,
     'height': 400,
@@ -346,6 +347,91 @@ Usage:
 Result:
 
 ![detailed_stack_bar](https://i.imgur.com/G2ZcU7M.png)
+
+### Line chart 
+
+Default config:
+
+```angular2html
+lineDefaultOptions = {
+          'valueField': [],     //required, value fields array
+          'nameField': '',      //required
+          'showGrid': true,
+          'showDots': true,
+          'showLegend': true,
+          'smoothLine': false,
+          'chart': {
+            'width': 800,
+            'height': 400,
+            'spacing': 30
+          },
+          'legend': {
+            'width': 300,
+            'size': 20,
+            'spacing': 5
+          },
+          'lineColorScheme': d3.scaleOrdinal(d3.schemeCategory10)
+        };
+```
+
+Test data:
+
+```angular2html
+  this.data = [
+        {'title': 'Ukraine', 'amount': '50', 'amount2': '100', 'amount3': '30'},
+        {'title': 'Russia', 'amount': '80', 'amount2': '200', 'amount3': '300'},
+        {'title': 'Sweden', 'amount': '120', 'amount2': '40', 'amount3': '150'},
+        {'title': 'Mexico', 'amount': '250', 'amount2': '60', 'amount3': '200'},
+        {'title': 'Canada', 'amount': '150', 'amount2': '180', 'amount3': '110'},
+        {'title': 'Brazil', 'amount': '280', 'amount2': '50', 'amount3': '130'},
+        {'title': 'Italy', 'amount': '80', 'amount2': '250', 'amount3': '30'},
+        {'title': 'China', 'amount': '10', 'amount2': '300', 'amount3': '200'},
+        {'title': 'India', 'amount': '50', 'amount2': '100', 'amount3': '230'},
+        {'title': 'Australia', 'amount': '160', 'amount2': '130', 'amount3': '60'}
+    ]
+```
+
+##### Single line
+
+Overwritten fields in config:
+
+```angular2html
+this.options = {
+      'nameField': 'title',
+      'valueField': ['amount']
+    };
+```
+
+Usage:
+
+```angular2html
+<app-graphr id="test1" [data]="data" type="line" [options]="options"></app-graphr>
+```
+
+Result:
+
+![single line](https://i.imgur.com/PekZtpa.png)
+
+##### Multiple lines
+
+Overwritten fields in config:
+
+```angular2html
+this.options = {
+      'nameField': 'title',
+      'valueField': ['amount', 'amount2', 'amount3']
+    };
+```
+
+Usage:
+
+```angular2html
+<app-graphr id="test1" [data]="data" type="line" [options]="options"></app-graphr>
+```
+
+Result:
+
+![multiple line](https://i.imgur.com/1s6BxyM.png)
 
 
 
