@@ -3,16 +3,16 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-import { GraphrComponent } from './graphr/graphr.component';
+import { GraphrModule } from './graphr/graphr.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    GraphrComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    GraphrModule
   ],
   providers: [],
   bootstrap: [AppComponent]

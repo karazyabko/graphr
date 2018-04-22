@@ -12,8 +12,8 @@ export class AppComponent {
   constructor() {
     this.options = {
       'nameField': 'title',
-      // 'valueField': ['amount']
-      'valueField': ['amount', 'amount2', 'amount3']
+      'valueField': 'amount'
+      // 'valueField': ['amount', 'amount2', 'amount3']
     };
     this.data = [
       {'title': 'Ukraine', 'amount': '50', 'amount2': '100', 'amount3': '30'},
